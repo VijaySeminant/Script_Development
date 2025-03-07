@@ -1,3 +1,4 @@
+
 // ==UserScript==
 // @name         Facebook Auto Open & Close Pages with Scroll (Fixed)
 // @namespace    http://tampermonkey.net/
@@ -7,6 +8,8 @@
 // @match        *://www.facebook.com/search/pages/*
 // @grant        GM_openInTab
 // ==/UserScript==
+// @match        *://www.facebook.com/search/pages/*
+
 
 (function() {
     'use strict';

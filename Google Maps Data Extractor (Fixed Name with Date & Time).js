@@ -1,7 +1,8 @@
+
 // ==UserScript==
 // @name         Google Maps Data Extractor (Fixed Name with Date & Time)
 // @namespace    https://your-namespace-here.com
-// @version      1.6
+// @version      1.7
 // @description  Extracts business details from Google Maps and downloads JSON with a fixed filename and timestamp.
 // @author       You
 // @match        https://www.google.com/maps/*
@@ -42,6 +43,7 @@
 
         // Get formatted date and time
         let formattedDateTime = getCurrentFormattedDateTime();
+        let recordCreated = new Date().toISOString(); // ISO 8601 format (YYYY-MM-DDTHH:mm:ss.sssZ)
 
         // Create filename in the format: "Google Maps, MM-DD-YYYY, HH-MM-SS AM_PM.json"
         let fileName = `Google Maps, ${formattedDateTime}.json`;
@@ -69,6 +71,8 @@
 
         // Download JSON File Automatically
         let businessData = {
+            source: "Google Maps",
+            recordcreated: recordCreated, // Newly added field
             name: businessName,
             website: website,
             phone: phoneNumber,
@@ -122,3 +126,6 @@
     });
 
 })();
+
+
+

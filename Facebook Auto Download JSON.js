@@ -1,7 +1,10 @@
+
+
+
 // ==UserScript==
 // @name         Auto Download JSON (No Email Restriction)
 // @namespace    http://tampermonkey.net/
-// @version      1.6
+// @version      1.7
 // @description  Extracts Facebook profile details and downloads JSON with a custom filename format including date and time.
 // @author       You
 // @match        *://www.facebook.com/*
@@ -21,7 +24,11 @@
     }
 
     function getIntroDetails() {
+        let recordCreated = new Date().toISOString(); // Get current timestamp
+
         let introData = {
+            source: "Facebook",
+            recordCreated: recordCreated, // Add timestamp of record creation
             profileName: getProfileName(),
             pageType: "Null",
             address: "Null",
